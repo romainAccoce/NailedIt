@@ -1,12 +1,16 @@
-import {useEffect, useState} from 'react';
+import { useEffect } from 'react';
 
-const Login: React.FC = () => {
+interface Props {
+    token: string;
+    setToken: (token: string) => void;
+}
+
+const Login: React.FC<Props> = ({token, setToken}) => {
     const CLIENT_ID: String = '692c8e8d7adf4ee5975d0135a0c8be98';
     const REDIRECT_URI: String = 'http://localhost:3000';
     const AUTH_ENDPOINT: String = 'https://accounts.spotify.com/authorize';
     const RESPONSE_TYPE: String = 'token';
 
-    const [token, setToken] = useState('');
 
     useEffect(() => {
         const hash = window.location.hash;
